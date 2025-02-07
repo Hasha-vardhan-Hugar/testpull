@@ -28,7 +28,7 @@ jobs:
       run: npm run build
 
     - name: Upload build artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: build-artifact
         path: path/to/build/output # Adjust the path to your build output directory
