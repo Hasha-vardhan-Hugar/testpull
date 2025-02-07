@@ -8,7 +8,7 @@ on:
         required: true
         type: integer
       second_integer:
-        description: 'Second Integer'
+        description: 'Second Intger'
         required: true
         type: integer
 
