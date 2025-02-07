@@ -1,29 +1,33 @@
-name: Hello harshavardhan
+name: Input Integer Workflow
 
 on:
   workflow_dispatch:
+    inputs:
+      first_integer:
+        description: 'First Integer'
+        required: true
+        type: integer
+      second_integer:
+        description: 'Second Integer'
+        required: true
+        type: integer
 
 jobs:
-  hello-world-job:
+  sum-integers:
     runs-on: ubuntu-latest
 
-    environment: dev-harsha
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-      - name: Print Hello
-        run: echo "Hello harsvardhan"
-
-  deploy:
-    runs-on: ubuntu-latest
-
-    environment: production
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Deploy
-        run: echo "Deploying to production"
+    - name: Sum the integers
+      run: |
+        # Get the inputs
+        first_integer=${{ github.event.inputs.first_integer }}
+        second_integer=${{ github.event.inputs.second_integer }}
+        
+        # Calculate the sum
+        sum=$((first_integer + second_integer))
+        
+        # Print the result
+        echo "The sum of $first_integer and $second_integer is: $sum"
