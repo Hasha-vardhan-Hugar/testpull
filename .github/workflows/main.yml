@@ -33,4 +33,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: build-artifact
-        path: $HOME/path/to/build/output # Adjust the path to your build output directory
+        path: C:\Users\user\Desktop
