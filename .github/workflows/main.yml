@@ -23,12 +23,14 @@ jobs:
 
     - name: Install dependencies
       run: npm install
+      working-directory: $HOME
 
     - name: Build project
       run: npm run build
+      working-directory: $HOME
 
     - name: Upload build artifact
       uses: actions/upload-artifact@v4
       with:
         name: build-artifact
-        path: path/to/build/output # Adjust the path to your build output directory
+        path: $HOME/path/to/build/output # Adjust the path to your build output directory
