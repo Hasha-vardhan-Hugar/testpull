@@ -7,9 +7,23 @@ jobs:
   hello-world-job:
     runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+    environment: dev-harsha
 
-    - name: Print Hello
-      run: echo "Hello"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Print Hello
+        run: echo "Hello"
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    environment: production
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Deploy
+        run: echo "Deploying to production"
